@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!-- 1. 全局设置 -->
+    <settings>
+        <!-- 开启自动驼峰命名转换（如 `user_name` 映射为 `userName`） -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 开启日志，方便调试 SQL -->
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+
+    <!-- 2. 配置数据库连接（如果未使用外部 DataSource） -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/Student_Mybatis?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="787887Robert"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="Mapper/StudentMapper.xml"/>  <!-- ✅ 直接使用 `resources` 下的路径 -->
+    </mappers>
+
+</configuration>
